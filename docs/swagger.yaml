@@ -1,0 +1,79 @@
+basePath: /
+definitions:
+  models.LoginRequest:
+    properties:
+      password:
+        type: string
+      phone:
+        type: string
+    type: object
+  models.RegisterRequest:
+    properties:
+      blocked:
+        type: boolean
+      createdAt:
+        type: string
+      createdBy:
+        type: string
+      firstName:
+        type: string
+      gender:
+        type: string
+      lastName:
+        type: string
+      passwordHash:
+        type: string
+      phone:
+        type: string
+      role:
+        type: string
+      status:
+        type: string
+    type: object
+host: localhost:8080
+info:
+  contact: {}
+  description: Auth + Product API
+  title: Phinix Khung API
+  version: "1.0"
+paths:
+  /api/auth/login:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: login to access your account
+        in: body
+        name: data
+        required: true
+        schema:
+          $ref: '#/definitions/models.LoginRequest'
+      produces:
+      - application/json
+      responses: {}
+      tags:
+      - Auth
+  /api/auth/register:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: Register request body
+        in: body
+        name: data
+        required: true
+        schema:
+          $ref: '#/definitions/models.RegisterRequest'
+      produces:
+      - application/json
+      responses: {}
+      tags:
+      - Auth
+  /api/users/get-profile:
+    get:
+      produces:
+      - application/json
+      responses: {}
+      tags:
+      - Users
+swagger: "2.0"
