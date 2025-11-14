@@ -7,6 +7,11 @@ definitions:
       phone:
         type: string
     type: object
+  models.MenuTypeRequest:
+    properties:
+      menuTypeName:
+        type: string
+    type: object
   models.RegisterRequest:
     properties:
       blocked:
@@ -33,8 +38,8 @@ definitions:
 host: localhost:8080
 info:
   contact: {}
-  description: Auth + Product API
-  title: Phinix Khung API
+  description: Lopster POS backend
+  title: Lopster POS API
   version: "1.0"
 paths:
   /api/auth/login:
@@ -69,6 +74,22 @@ paths:
       responses: {}
       tags:
       - Auth
+  /api/menu/menu-type:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: Menu type request body
+        in: body
+        name: data
+        required: true
+        schema:
+          $ref: '#/definitions/models.MenuTypeRequest'
+      produces:
+      - application/json
+      responses: {}
+      tags:
+      - Menu
   /api/users/get-profile:
     get:
       produces:

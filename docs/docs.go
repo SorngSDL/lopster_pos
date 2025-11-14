@@ -65,6 +65,31 @@ const docTemplate = `{
                 "responses": {}
             }
         },
+        "/api/menu/menu-type": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Menu"
+                ],
+                "parameters": [
+                    {
+                        "description": "Menu type request body",
+                        "name": "data",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.MenuTypeRequest"
+                        }
+                    }
+                ],
+                "responses": {}
+            }
+        },
         "/api/users/get-profile": {
             "get": {
                 "produces": [
@@ -85,6 +110,14 @@ const docTemplate = `{
                     "type": "string"
                 },
                 "phone": {
+                    "type": "string"
+                }
+            }
+        },
+        "models.MenuTypeRequest": {
+            "type": "object",
+            "properties": {
+                "menuTypeName": {
                     "type": "string"
                 }
             }
@@ -133,8 +166,8 @@ var SwaggerInfo = &swag.Spec{
 	Host:             "localhost:8080",
 	BasePath:         "/",
 	Schemes:          []string{},
-	Title:            "Phinix Khung API",
-	Description:      "Auth + Product API",
+	Title:            "Lopster POS API",
+	Description:      "Lopster POS backend",
 	InfoInstanceName: "swagger",
 	SwaggerTemplate:  docTemplate,
 	LeftDelim:        "{{",

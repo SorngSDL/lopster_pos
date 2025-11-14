@@ -1,8 +1,8 @@
 {
     "swagger": "2.0",
     "info": {
-        "description": "Auth + Product API",
-        "title": "Phinix Khung API",
+        "description": "Lopster POS backend",
+        "title": "Lopster POS API",
         "contact": {},
         "version": "1.0"
     },
@@ -59,6 +59,31 @@
                 "responses": {}
             }
         },
+        "/api/menu/menu-type": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Menu"
+                ],
+                "parameters": [
+                    {
+                        "description": "Menu type request body",
+                        "name": "data",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.MenuTypeRequest"
+                        }
+                    }
+                ],
+                "responses": {}
+            }
+        },
         "/api/users/get-profile": {
             "get": {
                 "produces": [
@@ -79,6 +104,14 @@
                     "type": "string"
                 },
                 "phone": {
+                    "type": "string"
+                }
+            }
+        },
+        "models.MenuTypeRequest": {
+            "type": "object",
+            "properties": {
+                "menuTypeName": {
                     "type": "string"
                 }
             }
