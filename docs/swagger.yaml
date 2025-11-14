@@ -1,15 +1,15 @@
 basePath: /
 definitions:
+  models.CategoryRequest:
+    properties:
+      categoryName:
+        type: string
+    type: object
   models.LoginRequest:
     properties:
       password:
         type: string
       phone:
-        type: string
-    type: object
-  models.MenuTypeRequest:
-    properties:
-      menuTypeName:
         type: string
     type: object
   models.RegisterRequest:
@@ -74,17 +74,17 @@ paths:
       responses: {}
       tags:
       - Auth
-  /api/menu/menu-type:
+  /api/menu/create-category:
     post:
       consumes:
       - application/json
       parameters:
-      - description: Menu type request body
+      - description: Create category request body
         in: body
         name: data
         required: true
         schema:
-          $ref: '#/definitions/models.MenuTypeRequest'
+          $ref: '#/definitions/models.CategoryRequest'
       produces:
       - application/json
       responses: {}

@@ -12,7 +12,7 @@ func Routes(r *gin.Engine) {
 		auth.POST("/auth/register", controllers.Register)
 		auth.GET("/users/get-profile", middlewares.AuthMiddleware(), controllers.GetProfile)
 		auth.POST("/auth/login", controllers.Login)
-		auth.POST("/menu/menu-type", middlewares.AuthMiddleware(), controllers.CreateMenuType)
+		auth.POST("/menu/create-category", middlewares.AuthMiddleware(), controllers.CreateCategory)
 
 	}
 }

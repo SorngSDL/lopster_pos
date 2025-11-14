@@ -65,7 +65,7 @@ const docTemplate = `{
                 "responses": {}
             }
         },
-        "/api/menu/menu-type": {
+        "/api/menu/create-category": {
             "post": {
                 "consumes": [
                     "application/json"
@@ -78,12 +78,12 @@ const docTemplate = `{
                 ],
                 "parameters": [
                     {
-                        "description": "Menu type request body",
+                        "description": "Create category request body",
                         "name": "data",
                         "in": "body",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/models.MenuTypeRequest"
+                            "$ref": "#/definitions/models.CategoryRequest"
                         }
                     }
                 ],
@@ -103,6 +103,14 @@ const docTemplate = `{
         }
     },
     "definitions": {
+        "models.CategoryRequest": {
+            "type": "object",
+            "properties": {
+                "categoryName": {
+                    "type": "string"
+                }
+            }
+        },
         "models.LoginRequest": {
             "type": "object",
             "properties": {
@@ -110,14 +118,6 @@ const docTemplate = `{
                     "type": "string"
                 },
                 "phone": {
-                    "type": "string"
-                }
-            }
-        },
-        "models.MenuTypeRequest": {
-            "type": "object",
-            "properties": {
-                "menuTypeName": {
                     "type": "string"
                 }
             }

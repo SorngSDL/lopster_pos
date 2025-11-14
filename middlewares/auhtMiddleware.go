@@ -13,7 +13,7 @@ func AuthMiddleware() gin.HandlerFunc {
 		auth := c.GetHeader("Authorization")
 		if auth == "" || !strings.HasPrefix(auth, "Bearer ") {
 			c.AbortWithStatusJSON(http.StatusUnauthorized,
-				gin.H{"error": "missing or invalid Authorization header"})
+				gin.H{"error": "missing or invalid token"})
 			return
 		}
 

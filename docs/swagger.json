@@ -59,7 +59,7 @@
                 "responses": {}
             }
         },
-        "/api/menu/menu-type": {
+        "/api/menu/create-category": {
             "post": {
                 "consumes": [
                     "application/json"
@@ -72,12 +72,12 @@
                 ],
                 "parameters": [
                     {
-                        "description": "Menu type request body",
+                        "description": "Create category request body",
                         "name": "data",
                         "in": "body",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/models.MenuTypeRequest"
+                            "$ref": "#/definitions/models.CategoryRequest"
                         }
                     }
                 ],
@@ -97,6 +97,14 @@
         }
     },
     "definitions": {
+        "models.CategoryRequest": {
+            "type": "object",
+            "properties": {
+                "categoryName": {
+                    "type": "string"
+                }
+            }
+        },
         "models.LoginRequest": {
             "type": "object",
             "properties": {
@@ -104,14 +112,6 @@
                     "type": "string"
                 },
                 "phone": {
-                    "type": "string"
-                }
-            }
-        },
-        "models.MenuTypeRequest": {
-            "type": "object",
-            "properties": {
-                "menuTypeName": {
                     "type": "string"
                 }
             }
