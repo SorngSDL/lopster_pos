@@ -154,6 +154,95 @@
                 "responses": {}
             }
         },
+        "/api/menu/edit-menu/{id}": {
+            "put": {
+                "security": [
+                    {
+                        "BearerAuth": []
+                    }
+                ],
+                "consumes": [
+                    "multipart/form-data"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Menu"
+                ],
+                "summary": "Edit menu",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Menu ID",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "Menu name EN",
+                        "name": "menuNameEn",
+                        "in": "formData",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "Menu name LO",
+                        "name": "menuNameLo",
+                        "in": "formData",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "Category name",
+                        "name": "categoryName",
+                        "in": "formData",
+                        "required": true
+                    },
+                    {
+                        "type": "number",
+                        "description": "Price",
+                        "name": "price",
+                        "in": "formData",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "Unit",
+                        "name": "unit",
+                        "in": "formData",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "Promotion name",
+                        "name": "promotionName",
+                        "in": "formData"
+                    },
+                    {
+                        "type": "number",
+                        "description": "Promotion price",
+                        "name": "promotionPrice",
+                        "in": "formData"
+                    },
+                    {
+                        "type": "file",
+                        "description": "Menu image (optional, send to replace)",
+                        "name": "menuImage",
+                        "in": "formData"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/models.MenuResponse"
+                        }
+                    }
+                }
+            }
+        },
         "/api/users/get-profile": {
             "get": {
                 "produces": [
@@ -182,6 +271,44 @@
                     "type": "string"
                 },
                 "phone": {
+                    "type": "string"
+                }
+            }
+        },
+        "models.MenuResponse": {
+            "type": "object",
+            "properties": {
+                "categoryName": {
+                    "type": "string"
+                },
+                "createdAt": {
+                    "type": "string"
+                },
+                "menuId": {
+                    "type": "string"
+                },
+                "menuImage": {
+                    "type": "string"
+                },
+                "menuNameEn": {
+                    "type": "string"
+                },
+                "menuNameLo": {
+                    "type": "string"
+                },
+                "price": {
+                    "type": "number"
+                },
+                "promotionName": {
+                    "type": "string"
+                },
+                "promotionPrice": {
+                    "type": "number"
+                },
+                "unit": {
+                    "type": "string"
+                },
+                "updatedAt": {
                     "type": "string"
                 }
             }

@@ -12,6 +12,31 @@ definitions:
       phone:
         type: string
     type: object
+  models.MenuResponse:
+    properties:
+      categoryName:
+        type: string
+      createdAt:
+        type: string
+      menuId:
+        type: string
+      menuImage:
+        type: string
+      menuNameEn:
+        type: string
+      menuNameLo:
+        type: string
+      price:
+        type: number
+      promotionName:
+        type: string
+      promotionPrice:
+        type: number
+      unit:
+        type: string
+      updatedAt:
+        type: string
+    type: object
   models.RegisterRequest:
     properties:
       blocked:
@@ -136,6 +161,65 @@ paths:
       - application/json
       responses: {}
       summary: Create menu
+      tags:
+      - Menu
+  /api/menu/edit-menu/{id}:
+    put:
+      consumes:
+      - multipart/form-data
+      parameters:
+      - description: Menu ID
+        in: path
+        name: id
+        required: true
+        type: string
+      - description: Menu name EN
+        in: formData
+        name: menuNameEn
+        required: true
+        type: string
+      - description: Menu name LO
+        in: formData
+        name: menuNameLo
+        required: true
+        type: string
+      - description: Category name
+        in: formData
+        name: categoryName
+        required: true
+        type: string
+      - description: Price
+        in: formData
+        name: price
+        required: true
+        type: number
+      - description: Unit
+        in: formData
+        name: unit
+        required: true
+        type: string
+      - description: Promotion name
+        in: formData
+        name: promotionName
+        type: string
+      - description: Promotion price
+        in: formData
+        name: promotionPrice
+        type: number
+      - description: Menu image (optional, send to replace)
+        in: formData
+        name: menuImage
+        type: file
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.MenuResponse'
+      security:
+      - BearerAuth: []
+      summary: Edit menu
       tags:
       - Menu
   /api/users/get-profile:

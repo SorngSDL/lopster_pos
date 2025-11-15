@@ -7,6 +7,8 @@ import (
 )
 
 func Routes(r *gin.Engine) {
+	r.Static("/uploads", "./uploads")
+
 	apiRoute := r.Group("/api")
 	{
 		apiRoute.POST("/auth/register", controllers.Register)
@@ -14,6 +16,7 @@ func Routes(r *gin.Engine) {
 		apiRoute.POST("/auth/login", controllers.Login)
 		apiRoute.POST("/menu/create-category", middlewares.AuthMiddleware(), controllers.CreateCategory)
 		apiRoute.POST("/menu/create-menu", middlewares.AuthMiddleware(), controllers.CreateMenu)
+		apiRoute.PUT("/menu/edit-menu/:id", controllers.EditMenu)
 
 	}
 }
