@@ -1,4 +1,3 @@
-// services/menu_service.go
 package services
 
 import (
@@ -20,7 +19,6 @@ func CreateMenuService(req models.MenuRequest, imagePath string) (models.MenuRes
 
 	col := db.GetCollection(configs.MenuCollection)
 
-	// ตัวอย่างเช็คซ้ำตามชื่อ (แล้วแต่ business rule)
 	var existing models.Menu
 	err := col.FindOne(ctx, bson.M{
 		"menuNameEn":   req.MenuNameEn,
@@ -38,7 +36,7 @@ func CreateMenuService(req models.MenuRequest, imagePath string) (models.MenuRes
 		MenuNameEn:     req.MenuNameEn,
 		MenuNameLo:     req.MenuNameLo,
 		CategoryName:   req.CategoryName,
-		MenuImage:      imagePath, // เก็บ path หรือ URL
+		MenuImage:      imagePath,
 		Price:          req.Price,
 		Unit:           req.Unit,
 		PromotionName:  req.PromotionName,

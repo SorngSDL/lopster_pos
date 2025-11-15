@@ -16,7 +16,8 @@ func Routes(r *gin.Engine) {
 		apiRoute.POST("/auth/login", controllers.Login)
 		apiRoute.POST("/menu/create-category", middlewares.AuthMiddleware(), controllers.CreateCategory)
 		apiRoute.POST("/menu/create-menu", middlewares.AuthMiddleware(), controllers.CreateMenu)
-		apiRoute.PUT("/menu/edit-menu/:id", controllers.EditMenu)
+		apiRoute.PUT("/menu/edit-menu/:id", middlewares.AuthMiddleware(), controllers.EditMenu)
+		apiRoute.GET("/menu/list", middlewares.AuthMiddleware(), controllers.ListMenu)
 
 	}
 }

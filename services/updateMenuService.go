@@ -1,4 +1,3 @@
-// services/menu_service.go
 package services
 
 import (
@@ -25,13 +24,11 @@ func UpdateMenuService(id string, req models.MenuRequest, imagePath *string) (mo
 		return models.MenuResponse{}, errors.New("invalid menu id")
 	}
 
-	// find existing
 	var existing models.Menu
 	if err := col.FindOne(ctx, bson.M{"_id": objID}).Decode(&existing); err != nil {
 		return models.MenuResponse{}, errors.New("menu not found")
 	}
 
-	// keep old image if no new one
 	menuImage := existing.MenuImage
 	if imagePath != nil && *imagePath != "" {
 		menuImage = *imagePath

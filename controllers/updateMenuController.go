@@ -1,4 +1,3 @@
-// controllers/menu_controller.go
 package controllers
 
 import (

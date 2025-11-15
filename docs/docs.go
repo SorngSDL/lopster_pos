@@ -249,6 +249,33 @@ const docTemplate = `{
                 }
             }
         },
+        "/api/menu/list": {
+            "get": {
+                "security": [
+                    {
+                        "BearerAuth": []
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Menu"
+                ],
+                "summary": "Get all menus",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/models.MenuResponse"
+                            }
+                        }
+                    }
+                }
+            }
+        },
         "/api/users/get-profile": {
             "get": {
                 "produces": [

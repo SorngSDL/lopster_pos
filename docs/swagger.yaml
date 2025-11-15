@@ -222,6 +222,22 @@ paths:
       summary: Edit menu
       tags:
       - Menu
+  /api/menu/list:
+    get:
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/models.MenuResponse'
+            type: array
+      security:
+      - BearerAuth: []
+      summary: Get all menus
+      tags:
+      - Menu
   /api/users/get-profile:
     get:
       produces:
