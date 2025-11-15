@@ -90,6 +90,76 @@ const docTemplate = `{
                 "responses": {}
             }
         },
+        "/api/menu/create-menu": {
+            "post": {
+                "consumes": [
+                    "multipart/form-data"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Menu"
+                ],
+                "summary": "Create menu",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Menu name EN",
+                        "name": "menuNameEn",
+                        "in": "formData",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "Menu name LO",
+                        "name": "menuNameLo",
+                        "in": "formData",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "Category name",
+                        "name": "categoryName",
+                        "in": "formData",
+                        "required": true
+                    },
+                    {
+                        "type": "number",
+                        "description": "Price",
+                        "name": "price",
+                        "in": "formData",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "Unit",
+                        "name": "unit",
+                        "in": "formData",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "Promotion name",
+                        "name": "promotionName",
+                        "in": "formData"
+                    },
+                    {
+                        "type": "number",
+                        "description": "Promotion price",
+                        "name": "promotionPrice",
+                        "in": "formData"
+                    },
+                    {
+                        "type": "file",
+                        "description": "Menu image",
+                        "name": "menuImage",
+                        "in": "formData"
+                    }
+                ],
+                "responses": {}
+            }
+        },
         "/api/users/get-profile": {
             "get": {
                 "produces": [

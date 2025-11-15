@@ -7,12 +7,13 @@ import (
 )
 
 func Routes(r *gin.Engine) {
-	auth := r.Group("/api")
+	apiRoute := r.Group("/api")
 	{
-		auth.POST("/auth/register", controllers.Register)
-		auth.GET("/users/get-profile", middlewares.AuthMiddleware(), controllers.GetProfile)
-		auth.POST("/auth/login", controllers.Login)
-		auth.POST("/menu/create-category", middlewares.AuthMiddleware(), controllers.CreateCategory)
+		apiRoute.POST("/auth/register", controllers.Register)
+		apiRoute.GET("/users/get-profile", middlewares.AuthMiddleware(), controllers.GetProfile)
+		apiRoute.POST("/auth/login", controllers.Login)
+		apiRoute.POST("/menu/create-category", middlewares.AuthMiddleware(), controllers.CreateCategory)
+		apiRoute.POST("/menu/create-menu", middlewares.AuthMiddleware(), controllers.CreateMenu)
 
 	}
 }

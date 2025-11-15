@@ -5,6 +5,8 @@ const DBName = "phinix_khung"
 const UserCollection = "users"
 const CategoryCollection = "category"
 
+const MenuCollection = "menu"
+
 var JWTSecret = []byte("super-secret-key-change-this")
 
 const AccessTokenTTL = 30
